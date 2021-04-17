@@ -2,17 +2,17 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 import Bank from './pages/bank';
 import Login from './pages/login';
+import { UserContext, useUser } from './context/User';
 import { getLightProfile } from './services/auth';
 
 import './App.css';
-import { UserContext } from './context/User';
-import { useState } from 'react';
 
 function App() {
-  const [user, setUser] = useState(null);
+  // Usamos useUser una vez al lanzar la App
+  const userContextData = useUser();
 
   return (
-    <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={userContextData}>
       <div className="App">
         <header>
           <h1>Ejemplo de autenticación</h1>

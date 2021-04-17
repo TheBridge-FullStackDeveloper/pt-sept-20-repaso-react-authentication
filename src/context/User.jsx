@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getLightProfile, postLogin } from '../services/auth';
 
 export const UserContext = React.createContext(null);
 
 export function useUser() {
-  const [user, setUser] = useContext(UserContext);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
